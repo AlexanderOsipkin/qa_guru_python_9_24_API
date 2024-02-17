@@ -1,0 +1,5 @@
+mimesis == 14.0.0
+pydantic == 2.6.1
+pytest == 8.0.1
+requests == 2.31.0
+allure-pytest == 2.13.2
