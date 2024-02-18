@@ -40,6 +40,7 @@
 ### Запуск автотестов в Jenkins
 
 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-AlexanderOsipkin-unit24_API/">проект</a>
+
 ![jenkins project main page](pictures/img1.png)
 
 2. Нажать "Build with Parameters"
