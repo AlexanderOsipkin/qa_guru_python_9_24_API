@@ -12,7 +12,7 @@ from petstore_tests_suite.utils.user_api.get_remote_user_by_username import (
 @allure.title('Delete user')
 @allure.feature('User delete API')
 @allure.label('microservice', 'API')
-@allure.label('owner', 'allure8')
+@allure.label('owner', 'Alexander Osipkin')
 @allure.tag('regress', 'API', 'normal')
 @allure.severity('normal')
 def test_delete_user(api_url, headers):

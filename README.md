@@ -1,4 +1,4 @@
-# Фреймворк для автоматизации тестирования API Petstore
+# Проект по автоматизации тестирования API Petstore
 > <a target="_blank" href="https://petstore.swagger.io/">petstore.swagger.io</a>
 
 ![main page screenshot](pictures/swagger_page.png)
@@ -54,58 +54,61 @@ allure serve build/allure-results
 
 ----
 
-### Проект в Jenkins
-> <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-AlexanderOsipkin-unit24_API/">Ссылка</a>
+### Запуск автотестов в Jenkins
 
-#### Параметры сборки
-> [!NOTE]
-> Параметры сборки не обязательны
-```python
-COMMENT = 'some comment' # Комментарий
-```
-#### Запуск автотестов в Jenkins
 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-AlexanderOsipkin-unit24_API/">проект</a>
-
-![jenkins project main page](petstore_api_test_framework/pictures/jenkins_project_main_page.png)
+![jenkins project main page](pictures/img1.png)
 
 2. Нажать "Build with Parameters"
-3. В поле "COMMENT" ввести комментарий
+3. Выбрать окружение и в поле "COMMENT" ввести комментарий
 4. Нажать "Build"
 
-![jenkins_build](petstore_api_test_framework/pictures/jenkins_build.png)
+![jenkins_build](pictures/img2.png)
+
+----
+
+### Локальный запуск автотестов
+
+1. Клонируйте репозиторий
+```ruby
+gh repo clone AlexanderOsipkin/qa_guru_python_9_24_API
+```
+2. Создайте и активируйте виртуальное окружение
+  ```ruby
+  python -m venv .venv
+  source .venv/bin/activate
+  ```
+3. Установите зависимости с помощью pip
+  ```ruby
+  pip install -r requirements.txt
+  ```
+4. Запустите автотесты 
+  ```ruby
+  pytest -sv
+  ```
+5. Получите отчёт allure
+```ruby
+allure serve allure-results
+``` 
 
 ----
 
 ### Интеграция с Allure TestOps
-#### <a target="_blank" href="https://allure.autotests.cloud/project/3909/dashboards">Ссылка на проект</a>
+#### <a target="_blank" href="https://allure.autotests.cloud/project/4048/dashboards">Ссылка на проект</a>
 
-#### <a target="_blank" href="https://allure.autotests.cloud/project/3909/dashboards">Дашборд с общими показателями тестовых прогонов</a>
+![allure_test_ops_dashboards](pictures/img3.png)
 
-![allure_test_ops_dashboards](petstore_api_test_framework/pictures/allure_testops_dashboards.png)
+#### <a target="_blank" href="https://allure.autotests.cloud/project/4048/launches">История запуска тестовых наборов</a>
 
-#### <a target="_blank" href="https://allure.autotests.cloud/project/3909/launches">История запуска тестовых наборов</a>
+![allure_testops_launches](pictures/img4.png)
 
-![allure_testops_launches](petstore_api_test_framework/pictures/allure_testops_launches.png)
+#### <a target="_blank" href="https://allure.autotests.cloud/project/4048/test-cases/30130?treeId=0">Тест кейсы</a>
 
-#### <a target="_blank" href="https://allure.autotests.cloud/project/3909/test-cases/28499?treeId=0">Тест кейсы</a>
-
-![allure_testops_suites](petstore_api_test_framework/pictures/allure_testops_suites.png)
-
-#### <a target="_blank" href="https://allure.autotests.cloud/launch/33574/tree/551304/attachments?treeId=0">Тестовые артефакты</a>
-
-![allure_testops_suites](petstore_api_test_framework/pictures/allure_testops_test_attachments.png)
-
-#### <a target="_blank" href="https://allure.autotests.cloud/project/3909/test-cases?treeId=0">Ручной запуск авто теста из Allure TestOps</a>
-
-![allure_testops_suites](petstore_api_test_framework/pictures/allure_testops_manual_test_run.png)
-
-1. Нажать на чек-бокс необходимого тест кейса
-2. Нажать на "Bulk actions"
-3. Нажать на "Run"
+![allure_testops_suites](pictures/img5.png)
 
 ----
 
 ### Оповещения в Telegram
-![telegram_allert](petstore_api_test_framework/pictures/telegram_allert.png)
+![telegram_allert](pictures/telegram.png)
 
 ----

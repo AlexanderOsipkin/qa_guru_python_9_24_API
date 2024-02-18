@@ -18,7 +18,7 @@ class TestCreateUser:
     @allure.title('Create one user')
     @allure.feature('User create API')
     @allure.label('microservice', 'API')
-    @allure.label('owner', 'allure8')
+    @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
     def test_create_user(self, api_url, headers):
@@ -28,7 +28,7 @@ class TestCreateUser:
     @allure.title('Create many users with input array')
     @allure.feature('Create user with array API')
     @allure.label('microservice', 'API')
-    @allure.label('owner', 'allure8')
+    @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('regress', 'API', 'critical')
     @allure.severity('critical')
     def test_create_user_with_input_array(self, api_url, headers):
@@ -39,7 +39,7 @@ class TestCreateUser:
     @allure.title('Create many users with input list')
     @allure.feature('Create user with list API')
     @allure.label('microservice', 'API')
-    @allure.label('owner', 'allure8')
+    @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('regress', 'API', 'critical')
     @allure.severity('critical')
     def test_create_user_with_input_list(self, api_url, headers):

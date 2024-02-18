@@ -11,7 +11,7 @@ class TestUserSession:
     @allure.title('User login')
     @allure.feature('Authentication API')
     @allure.label('microservice', 'API')
-    @allure.label('owner', 'allure8')
+    @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
     def test_user_login(self, api_url, headers):
@@ -26,7 +26,7 @@ class TestUserSession:
     @allure.title('User logout')
     @allure.feature('User logout API')
     @allure.label('microservice', 'API')
-    @allure.label('owner', 'allure8')
+    @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
     def test_user_logout(self, api_url, headers):
