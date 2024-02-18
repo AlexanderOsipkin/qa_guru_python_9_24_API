@@ -37,23 +37,6 @@
 
 ----
 
-### Локальный запуск автотестов
-
-#### Выполнить в cli:
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-pytest -s -v
-```
-
-#### Получение отчёта:
-```bash
-allure serve build/allure-results
-```
-
-----
-
 ### Запуск автотестов в Jenkins
 
 1. Открыть <a target="_blank" href="https://jenkins.autotests.cloud/job/C09-AlexanderOsipkin-unit24_API/">проект</a>
@@ -108,7 +91,5 @@ allure serve allure-results
 
 ----
 
-### Оповещения в Telegram
+### Оповещение в Telegram
 ![telegram_allert](pictures/telegram.png)
-
-----
