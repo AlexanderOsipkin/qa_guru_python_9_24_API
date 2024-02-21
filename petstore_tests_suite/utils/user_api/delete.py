@@ -4,9 +4,10 @@ import requests
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_delete
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def delete(api_url, headers, username):
+def delete(username):
     with allure.step('Удаляем пользователя'):
         method = 'DELETE'
         endpoint = f'/v2/user/{username}/'
@@ -14,8 +15,9 @@ def delete(api_url, headers, username):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для удаления пользователя'
             ):
-                response = requests.request(
-                    method=method, url=f'{api_url}{endpoint}', headers=headers
+                response = requests_api(
+                    method=method,
+                    url=endpoint,
                 )
                 delete_user_response_json = response.json()
                 allure_attach.response_body(delete_user_response_json)

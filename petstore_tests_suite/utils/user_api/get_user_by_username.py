@@ -4,9 +4,10 @@ import requests
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_get_by_username
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def get_user_by_username(api_url, headers, username):
+def get_user_by_username(username):
     with allure.step('Получаем пользователя по username'):
         method = 'GET'
         endpoint = f'/v2/user/{username}'
@@ -14,8 +15,9 @@ def get_user_by_username(api_url, headers, username):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для получения пользователя'
             ):
-                response = requests.request(
-                    method=method, url=f'{api_url}{endpoint}', headers=headers
+                response = requests_api(
+                    method=method,
+                    url=endpoint,
                 )
                 get_user_by_username_response_json = response.json()
                 allure_attach.response_body(get_user_by_username_response_json)

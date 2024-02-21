@@ -4,9 +4,10 @@ import requests
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_logout
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def logout(api_url, headers):
+def logout():
     with allure.step('Выйти из системы'):
         method = 'GET'
         endpoint = '/v2/user/logout/'
@@ -14,8 +15,9 @@ def logout(api_url, headers):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для выхода из системы'
             ):
-                response = requests.request(
-                    method='GET', url=f'{api_url}{endpoint}', headers=headers
+                response = requests_api(
+                    method='GET',
+                    url=endpoint,
                 )
                 user_logout_response_json = response.json()
                 allure_attach.response_body(user_logout_response_json)

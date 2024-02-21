@@ -5,9 +5,10 @@ import json
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_create_with_input_list
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def create_user_with_input_list(api_url, headers):
+def create_user_with_input_list():
     with allure.step('Создаем пользователя'):
         method = 'POST'
         endpoint = '/v2/user/createWithList/'
@@ -22,10 +23,9 @@ def create_user_with_input_list(api_url, headers):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для создания пользователя'
             ):
-                response = requests.request(
+                response = requests_api(
                     method=method,
-                    url=f'{api_url}{endpoint}',
-                    headers=headers,
+                    url=endpoint,
                     data=create_user_with_input_list_request,
                 )
                 create_user_with_input_list_json = response.json()

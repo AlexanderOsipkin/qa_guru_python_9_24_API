@@ -5,9 +5,10 @@ import json
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_update
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def update(api_url, headers, username):
+def update(username):
     with allure.step('Обновляем пользователя'):
         method = 'PUT'
         endpoint = f'/v2/user/{username}/'
@@ -22,10 +23,9 @@ def update(api_url, headers, username):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для обновления пользователя'
             ):
-                response = requests.request(
+                response = requests_api(
                     method=method,
-                    url=f'{api_url}{endpoint}',
-                    headers=headers,
+                    url=endpoint,
                     data=update_user_request,
                 )
                 update_user_response = response.json()

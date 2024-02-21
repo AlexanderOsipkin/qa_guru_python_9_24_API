@@ -21,9 +21,9 @@ class TestCreateUser:
     @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
-    def test_create_user(self, api_url, headers):
-        username = create(api_url, headers)
-        get_user_by_username(api_url, headers, username=username['username'])
+    def test_create_user(self):
+        username = create()
+        get_user_by_username(username=username['username'])
 
     @allure.title('Create many users with input array')
     @allure.feature('Create user with array API')
@@ -31,10 +31,10 @@ class TestCreateUser:
     @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('regress', 'API', 'critical')
     @allure.severity('critical')
-    def test_create_user_with_input_array(self, api_url, headers):
-        username = create_user_with_input_array(api_url, headers)
-        get_user_by_username(api_url, headers, username=username[0]['username'])
-        get_user_by_username(api_url, headers, username=username[1]['username'])
+    def test_create_user_with_input_array(self):
+        username = create_user_with_input_array()
+        get_user_by_username(username=username[0]['username'])
+        get_user_by_username(username=username[1]['username'])
 
     @allure.title('Create many users with input list')
     @allure.feature('Create user with list API')
@@ -42,7 +42,7 @@ class TestCreateUser:
     @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('regress', 'API', 'critical')
     @allure.severity('critical')
-    def test_create_user_with_input_list(self, api_url, headers):
-        username = create_user_with_input_list(api_url, headers)
-        get_user_by_username(api_url, headers, username=username[0]['username'])
-        get_user_by_username(api_url, headers, username=username[1]['username'])
+    def test_create_user_with_input_list(self):
+        username = create_user_with_input_list()
+        get_user_by_username(username=username[0]['username'])
+        get_user_by_username(username=username[1]['username'])

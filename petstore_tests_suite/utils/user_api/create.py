@@ -5,9 +5,10 @@ import json
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_create
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def create(api_url, headers):
+def create():
     with allure.step('Создаем пользователя'):
         method = 'POST'
         endpoint = '/v2/user/'
@@ -22,10 +23,9 @@ def create(api_url, headers):
             with allure.step(
                 f'Отправить {method} запрос на {endpoint} для создания пользователя'
             ):
-                response = requests.request(
+                response = requests_api(
                     method=method,
-                    url=f'{api_url}{endpoint}',
-                    headers=headers,
+                    url=endpoint,
                     data=create_user_request,
                 )
                 create_user_response_json = response.json()

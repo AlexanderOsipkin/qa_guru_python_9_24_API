@@ -4,19 +4,19 @@ import requests
 from petstore_tests_suite.utils import allure_attach
 from pydantic import ValidationError
 from petstore_tests_suite.basemodels.user import user_login
+from petstore_tests_suite.utils.helper import requests_api
 
 
-def login(api_url, headers, username, password):
+def login(username, password):
     with allure.step('Проходим авторизацию'):
         method = 'GET'
         endpoint = '/v2/user/login/'
         query_params = f'username={username}&password={password}'
         try:
             with allure.step(f'Отправить {method} запрос на {endpoint}?{query_params}'):
-                response = requests.request(
+                response = requests_api(
                     method=method,
-                    url=f'{api_url}{endpoint}?{query_params}',
-                    headers=headers,
+                    url=endpoint,
                 )
                 user_login_response = response.json()
                 allure_attach.response_body(user_login_response)

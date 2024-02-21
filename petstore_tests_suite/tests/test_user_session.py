@@ -14,11 +14,9 @@ class TestUserSession:
     @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
-    def test_user_login(self, api_url, headers):
-        user_data = create(api_url, headers)
+    def test_user_login(self):
+        user_data = create()
         login(
-            api_url,
-            headers,
             username=user_data['username'],
             password=user_data['password'],
         )
@@ -29,5 +27,5 @@ class TestUserSession:
     @allure.label('owner', 'Alexander Osipkin')
     @allure.tag('smoke', 'regress', 'API', 'critical')
     @allure.severity('critical')
-    def test_user_logout(self, api_url, headers):
-        logout(api_url, headers)
+    def test_user_logout(self):
+        logout()

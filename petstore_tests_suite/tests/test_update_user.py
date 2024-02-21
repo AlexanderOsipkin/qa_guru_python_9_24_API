@@ -15,7 +15,7 @@ from petstore_tests_suite.utils.user_api.get_user_by_username import (
 @allure.label('owner', 'Alexander Osipkin')
 @allure.tag('regress', 'API', 'normal')
 @allure.severity('normal')
-def test_update_user(api_url, headers):
-    user_data = create(api_url, headers)
-    update_user_data = update(api_url, headers, username=user_data['username'])
-    get_user_by_username(api_url, headers, username=update_user_data['username'])
+def test_update_user():
+    user_data = create()
+    update_user_data = update(username=user_data['username'])
+    get_user_by_username(username=update_user_data['username'])
